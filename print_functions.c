@@ -1,6 +1,7 @@
 #include "main.h"
 
-/** print_char - prints char
+/**
+ * print_char - prints char
  * @ap: arg pointer
  * @params: param struct
  *
@@ -9,7 +10,7 @@
 
 int print_char(va_list ap, params_t *params)
 {
-	char pad _char = ' ';
+	char pad_char = ' ';
 	unsigned int pad =1,sum = 0, ch = va_arg(ap, int);
 
 	if (params->minus_flag)
@@ -38,7 +39,7 @@ int print_int(va_list ap, params_t *params)
 		l = (short int)va_arg(ap, int);
 	else
 		l = (int)va_arg(ap, int);
-	return (print_number(convert(l, 10, 0, param), params));
+	return (print_number(convert(l, 10, 0, params), params));
 }
 
 /**
@@ -62,7 +63,7 @@ int print_string(va_list ap, params_t *params)
 		j = pad = params->precision;
 	if (params->minus_flag)
 	{
-		if (params->precision != UNIT_MAX)
+		if (params->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
 				sum += _putchar(*str++);
 		else
@@ -72,13 +73,27 @@ int print_string(va_list ap, params_t *params)
 		sum += _putchar(pad_char);
 	if (!params->minus_flag)
 	{
-		if (params->precision != UNIT_MAX)
+		if (params->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
 				sum += _putchar(*str++);
 		else
 			sum += _puts(str);
 	}
 	return (sum);
+}
+
+/**
+ * print_percent - prints str
+ * @ap arg pointer
+ * @params: param struct
+ *
+ * Return: num of chars printed
+ */
+int print_percent(va_list ap, params_t *params)
+{
+	(void)ap;
+	(void)params;
+	return (_putchar('%'));
 }
 
 /**
@@ -104,7 +119,7 @@ int print_S(va_list ap, params_t *params)
 			sum += _putchar('x');
 			hex = convert(*str, 16, 0, params);
 			if (!hex[1])
-				sum += putchar('0);
+				sum += putchar('0');
 			sum += _puts(hex);
 		}
 		else

@@ -68,7 +68,7 @@ int print_binary(va_list ap, params_t *params)
 	char *str = convert(n, 2, CONVERT_UNSIGNED, params);
 	int c = 0;
 	
-	if(params->hashtah_flag && n)
+	if(params->hashtag_flag && n)
 		*--str = '0';
 	params ->unsign = 1;
 	return (c += print_number(str,params));
