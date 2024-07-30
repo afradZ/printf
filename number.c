@@ -59,14 +59,14 @@ int print_unsigned(va_list ap, params_t *params)
 }
 
 /**
- * print_address - prints address
+ * print_adress - prints address
  * @ap: arg pointer
  * @params: params struct
  *
  * Return: bytes printed
  */
 
-int print_address(va_list ap, params_t *params)
+int print_adress(va_list ap, params_t *params)
 {
 	unsigned long int n = va_arg(ap, unsigned long int);
 	char *str;
