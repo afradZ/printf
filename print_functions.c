@@ -101,7 +101,7 @@ int print_percent(va_list ap, params_t *params)
  * @ap: arg pointer
  * @params: param struct
  *
- * Return: num of char printed
+ * Return: num of bytes printed
  */
 int print_S(va_list ap, params_t *params)
 {
@@ -119,7 +119,7 @@ int print_S(va_list ap, params_t *params)
 			sum += _putchar('x');
 			hex = convert(*str, 16, 0, params);
 			if (!hex[1])
-				sum += putchar('0');
+				sum += _putchar('0');
 			sum += _puts(hex);
 		}
 		else
