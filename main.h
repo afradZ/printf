@@ -18,7 +18,7 @@
 #define CONVERT_UNSIGNED   2
 
 /**
- * struct params - params struct
+ * struct parameters - params struct
  *
  * @unsign: flag if unsigned value
  *
@@ -54,14 +54,14 @@ typedef struct parameters
 /**
  * struct specifier - struct token
  *
- * @specifier: format token 
+ * @specifier: format token
  * @f: function associated
  */
 
 typedef struct specifier
 {
 	char *specifier;
-	int (*f) (va_list, params_t *);
+	int (*f)(va_list, params_t *);
 } specifier_t;
 
 /* _put.c module */
@@ -106,10 +106,10 @@ int print_number_right_shift(char *str, params_t *params);
 int print_number_left_shift(char *str, params_t *params);
 
 /* params.c */
-void init_params(params_t *params,va_list ap);
+void init_params(params_t *params, va_list ap);
 
 /* string_fields.cmodule */
-char *get_precision(char*p, params_t *params, va_list ap);
+char *get_precision(char *p, params_t *params, va_list ap);
 
 /*_printf.c */
 int _printf(const char *format, ...);

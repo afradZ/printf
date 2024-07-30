@@ -11,20 +11,20 @@
 int print_char(va_list ap, params_t *params)
 {
 	char pad_char = ' ';
-	unsigned int pad =1,sum = 0, ch = va_arg(ap, int);
+	unsigned int pad = 1, sum = 0, ch = va_arg(ap, int);
 
 	if (params->minus_flag)
-		sum+= _putchar(ch);
-	while (pad++ <params->width)
+		sum += _putchar(ch);
+	while (pad++ < params->width)
 		sum += _putchar(pad_char);
-	if (!params-> minus_flag)
+	if (!params->minus_flag)
 		sum += _putchar(ch);
 	return (sum);
 }
 
 /**
  * print_int - prints int
- * @p: arg pointer
+ * @ap: arg pointer
  * @params: param struct
  *
  * Return: num of chars printed
@@ -34,7 +34,7 @@ int print_int(va_list ap, params_t *params)
 	long l;
 
 	if (params->l_modifier)
-		l = va_arg(ap,long);
+		l = va_arg(ap, long);
 	else if (params->h_modifier)
 		l = (short int)va_arg(ap, int);
 	else
@@ -43,7 +43,7 @@ int print_int(va_list ap, params_t *params)
 }
 
 /**
- * print string - prints string
+ * print_string - prints string
  * @ap: arg pointer
  * @params: param struct
  *
@@ -59,7 +59,7 @@ int print_string(va_list ap, params_t *params)
 		case 1:
 			str = NULL_STRING;
 	j = pad = _strlen(str);
-	if (params->precision <pad)
+	if (params->precision < pad)
 		j = pad = params->precision;
 	if (params->minus_flag)
 	{
@@ -69,7 +69,7 @@ int print_string(va_list ap, params_t *params)
 		else
 			sum += _puts(str);
 	}
-	while (j++ <params->width)
+	while (j++ < params->width)
 		sum += _putchar(pad_char);
 	if (!params->minus_flag)
 	{
@@ -84,7 +84,7 @@ int print_string(va_list ap, params_t *params)
 
 /**
  * print_percent - prints str
- * @ap arg pointer
+ * @ap: arg pointer
  * @params: param struct
  *
  * Return: num of chars printed

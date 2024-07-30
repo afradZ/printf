@@ -5,7 +5,7 @@
  * @num: number
  * @base: base
  * @flags: arg flags
- * params: param struct
+ * @params: param struct
  *
  * Return: str
  */
@@ -18,7 +18,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 	unsigned long n = num;
 	(void)params;
 
-	if(!(flags & CONVERT_UNSIGNED) && num < 0)
+	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
 		n = -num;
 		sign = '-';
@@ -40,13 +40,14 @@ char *convert(long int num, int base, int flags, params_t *params)
 /**
  * print_unsigned - prints unsigned integer numbers
  * @ap: arg pointer
- * @params; param struct
+ * @params: param struct
  *
  * Return: bytes printed
  */
 int print_unsigned(va_list ap, params_t *params)
 {
 	unsigned long l;
+
 	if (params->l_modifier)
 		l = (unsigned long)va_arg(ap, unsigned long);
 	else if (params->h_modifier)
@@ -58,14 +59,14 @@ int print_unsigned(va_list ap, params_t *params)
 }
 
 /**
- * print_adress - prints address
+ * print_address - prints address
  * @ap: arg pointer
  * @params: params struct
  *
- * Return bytes printed
+ * Return: bytes printed
  */
 
-int print_adress(va_list ap, params_t *params)
+int print_address(va_list ap, params_t *params)
 {
 	unsigned long int n = va_arg(ap, unsigned long int);
 	char *str;

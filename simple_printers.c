@@ -8,7 +8,7 @@
  *
  * Return: number of bytes printed
  */
-int print_from_to(char *start,char *stop, char *except)
+int print_from_to(char *start, char *stop, char *except)
 {
 	int sum = 0;
 
@@ -34,7 +34,7 @@ int print_rev(va_list ap, params_t *params)
 	char *str = va_arg(ap, char *);
 	(void)params;
 
-	if(str)
+	if (str)
 	{
 		for (len = 0; *str; str++)
 			len++;

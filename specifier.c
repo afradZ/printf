@@ -27,9 +27,10 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{NULL, NULL}
 	};
 	int i = 0;
+
 	while (specifiers[i].specifier)
 	{
-		if(*s == specifiers[i].specifier[0])
+		if (*s == specifiers[i].specifier[0])
 		{
 			return (specifiers[i].f);
 		}
@@ -65,6 +66,7 @@ int get_print_func(char *s, va_list ap, params_t *params)
 int get_flag(char *s, params_t *params)
 {
 	int i = 0;
+
 	switch (*s)
 	{
 		case '+':
@@ -96,7 +98,7 @@ int get_flag(char *s, params_t *params)
 int get_modifier(char *s, params_t *params)
 {
 	int i = 0;
-	
+
 	switch (*s)
 	{
 	case 'h':
@@ -133,5 +135,5 @@ char *get_width(char *s, params_t *params, va_list ap)
 	}
 	params->width = d;
 	return (s);
-}	
+}
 
